@@ -245,8 +245,6 @@ main {
             color: var(--gray);
             font-size: 18px;
             font-weight: 400;
-
-            color: red;
             strong {
                 color: var(--dark);
                 font-size: 18px;
