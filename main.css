@@ -43,6 +43,21 @@ button {
 .button {
     padding: 12px 24px;
     border-radius: 15px;
+    min-width: 160px;
+    display: inline-block;
+    text-align: center;
+
+    &.button-primary {
+        background: var(--primary);
+        color: var(--light);
+        border: none;
+    }
+}
+
+.circular-progress {
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }
 
 a {
@@ -61,6 +76,11 @@ body {
     color: var(--dark)
 }
 
+.card-icon {
+    padding: 14px;
+    border-radius: 15px;
+}
+
 .card-icon-primary-weakest {
     background: var(--primary-weakest);
 
@@ -73,6 +93,43 @@ body {
 
 .card-icon-secondary-weakest {
     background: var(--secondary-weakest);
+}
+
+.cards-title h4 {
+    color: var(--dark);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cards .custom-card {
+    border-radius: 25px;
+    border: 1px solid var(--gray-25);
+    background: var(--light);
+    margin-top: 20px;
+
+    h5 {
+        color: var(--dark);
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--gray);
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
+.dot {
+    width: 41px;
+    height: 4px;
+    flex-shrink: 0;
+    background: var(--gray-25);
+
+    &.active {
+        width: 70px;
+        background: var(--primary)
+    }
 }
 
 aside.aside-navbar {
@@ -106,7 +163,7 @@ aside.aside-navbar {
                 }
             }
 
-            &:hover {
+            &:hover , &.active{
                 border-right: 4px solid var(--primary);
                 background: linear-gradient(270deg, rgba(21, 147, 152, 0.10) 0%, rgba(21, 147, 152, 0.00) 100%);
 
@@ -128,6 +185,7 @@ aside.aside-navbar {
 }
 
 aside.user-profile {
+    height: 100vh;
     width: 354px;
     padding: 24px;
     padding-top: 72px;
@@ -245,6 +303,7 @@ main {
             color: var(--gray);
             font-size: 18px;
             font-weight: 400;
+
             strong {
                 color: var(--dark);
                 font-size: 18px;
@@ -253,25 +312,111 @@ main {
         }
     }
 
-    .slider-exam {
-        .top-right {
-            h4 {
-                color: var(--dark);
-                font-size: 18px;
-                font-weight: 500;
+    .cards-container {
+        gap: 36px
+    }
+
+    .cards {
+        width: 100%;
+
+
+        .custom-card {
+            .right {
+                width: 303px;
+
+
+
+                .button {
+                    border-radius: 15px;
+                    border: 1px solid var(--gray-25);
+                    background: var(--light);
+                }
+
             }
-        }
 
-        .top-left {
-            .dot {
-                width: 41px;
-                height: 4px;
-                flex-shrink: 0;
-                background: var(--gray-25);
+            .left {
+                svg {
+                    z-index: 0;
+                    position: absolute;
+                    left: 0;
+                }
 
-                &.active {
-                    width: 70px;
-                    background: var(--primary)
+                img {
+                    z-index: 1;
+                    position: relative;
+                }
+            }
+
+            &.MBTI {
+                gap: 36px;
+                overflow: hidden;
+                position: relative;
+
+                >img {
+                    position: absolute;
+                    bottom: -38px;
+                    left: -50px;
+                    width: 233px;
+                    height: 233px;
+                }
+
+                .bottom {
+                    width: 524px;
+
+                    .abs-card {
+                        padding: 12px 20px;
+                        width: 237px;
+                        border-radius: 20px;
+                        border: 1px solid var(--gray-10);
+                        background: var(--light);
+                        gap: 12px;
+
+                        h6 {
+                            color: var(--gray);
+                            text-align: right;
+
+                            font-size: 14px;
+                            line-height: 26px;
+                            font-weight: 400;
+                        }
+
+                        p {
+                            color: var(--dark);
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 28px;
+                        }
+
+                    }
+                }
+            }
+
+            &.passed-exam {
+                >svg{
+                    position:absolute;
+                    top:0;
+                    right:0
+                }
+                h5 {
+                    color: var(--dark);
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 32px;
+                    padding: 0 1.25rem
+                }
+
+                .button {
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 32px;
+                }
+
+                .card-icon {
+                    top: 24px;
+                    left: 24px;
+                    border: 1px solid var(--gray-25);
+
                 }
             }
         }
